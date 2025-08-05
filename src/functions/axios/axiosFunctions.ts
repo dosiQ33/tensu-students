@@ -26,6 +26,29 @@ export const staffApi = {
         axiosRequest<unknown>(ENDPOINTS.STUFF.PREFERENCE(tgId, key), 'GET', token),
 };
 
+export const studentsApi = {
+    getList: (token: string) =>
+        axiosRequest<CreateStaffResponse[]>(ENDPOINTS.STUDENTS.BASE, 'GET', token),
+
+    getById: (userId: string, token: string) =>
+        axiosRequest<CreateStaffResponse>(ENDPOINTS.STUDENTS.BY_ID(userId), 'GET', token),
+
+    getMe: (token: string | null) =>
+        axiosRequest<CreateStaffResponse>(ENDPOINTS.STUDENTS.ME, 'GET', token),
+
+    updateMe: (data: UpdateStaffRequest, token: string) =>
+        axiosRequest<CreateStaffResponse>(ENDPOINTS.STUDENTS.BASE, 'PUT', token, data),
+
+    create: (data: CreateStaffRequest, token: string) =>
+        axiosRequest<CreateStaffResponse>(ENDPOINTS.STUFF.BASE, 'POST', token, data),
+
+    updatePrefs: (prefs: unknown, token: string) =>
+        axiosRequest<unknown>(ENDPOINTS.STUDENTS.PREFERENCES, 'PUT', token, prefs),
+
+    getPref: (tgId: string, key: string, token: string) =>
+        axiosRequest<unknown>(ENDPOINTS.STUFF.PREFERENCE(tgId, key), 'GET', token),
+};
+
 export const clubsApi = {
     getLimitsCheck: (token: string) =>
         axiosRequest<GetClubsLimitCheckResponse>(ENDPOINTS.CLUBS.LIMITS_CHECK, 'GET', token),

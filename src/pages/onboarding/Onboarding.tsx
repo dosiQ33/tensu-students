@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AsYouType } from "libphonenumber-js";
 import OnboardingBgImg from "@/assets/onboarding-bg.png";
 import { useTelegram } from "@/hooks/useTelegram";
-import { staffApi } from "@/functions/axios/axiosFunctions";
+import { studentsApi } from "@/functions/axios/axiosFunctions";
 
 export default function OnboardingPage() {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function OnboardingPage() {
       setHasChecked(true);
       (async () => {
         try {
-          const resp = await staffApi.getMe(token);
+          const resp = await studentsApi.getMe(token);
           if ((resp.status === 200 || resp.status === 201) && resp.data) {
             localStorage.setItem(
               "telegramUser",
@@ -121,7 +121,7 @@ export default function OnboardingPage() {
 
     (async () => {
       try {
-        const response = await staffApi.create(
+        const response = await studentsApi.create(
           { contact_init_data: contactData.response, preferences: {} },
           token!
         );
