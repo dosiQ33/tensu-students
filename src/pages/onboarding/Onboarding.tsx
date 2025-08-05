@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AsYouType } from "libphonenumber-js";
-import OnboardingBgImg from "@/assets/onboarding-bg.png";
+import OnboardingBgImg from "@/assets/onboarding-bg-old.png";
 import { useTelegram } from "@/hooks/useTelegram";
 import { studentsApi } from "@/functions/axios/axiosFunctions";
 
