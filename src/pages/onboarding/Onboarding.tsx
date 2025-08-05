@@ -134,7 +134,7 @@ export default function OnboardingPage() {
         if (err.response?.status === 404) {
           setShowInvitationAlert(true);
         }
-        console.error("Ошибка создания staff:", err);
+        console.error("Ошибка создания student:", err);
       } finally {
         sendData({ fullName, phone, avatar });
       }
