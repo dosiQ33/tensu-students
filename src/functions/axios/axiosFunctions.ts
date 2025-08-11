@@ -4,14 +4,8 @@ import type { CancelLessonRequest, CompleteLessonRequest, CreateClubRequest, Cre
 import type { CreateClubResponse, CreateSectionResponse, CreateStaffResponse, GetClubsLimitCheckResponse, GetMyClubsResponse, GetMyInvitationsResponse, GetSectionGroupsResponse, GetMySectionsResponse, GetTeamMembersResponse, CreateGroupResponse, CreateManualLessonResponse, GetDayScheduleResponse, GetGroupScheduleTemplateResponse, GetLessonsResponse, GetWeekScheduleResponse, Lesson, GetStudentsListResponse, CreateStudentResponse } from './responses';
 
 export const staffApi = {
-    getList: (token: string) =>
-        axiosRequest<CreateStaffResponse[]>(ENDPOINTS.STUFF.BASE, 'GET', token),
-
     getById: (userId: string, token: string) =>
         axiosRequest<CreateStaffResponse>(ENDPOINTS.STUFF.BY_ID(userId), 'GET', token),
-
-    getMe: (token: string | null) =>
-        axiosRequest<CreateStaffResponse>(ENDPOINTS.STUFF.ME, 'GET', token),
 
     updatePrefs: (prefs: unknown, token: string) =>
         axiosRequest<unknown>(ENDPOINTS.STUFF.PREFERENCES, 'PUT', token, prefs),

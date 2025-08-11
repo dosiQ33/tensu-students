@@ -8,10 +8,11 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
-import MainPage2 from "./pages/student-pages/main/MainPage2-old";
+import MainPage2 from "./pages/student-pages/main/MainPage2";
 import ProfilePage from "./pages/student-pages/profile/ProfilePage";
 import StatsPage from "./pages/student-pages/stats/StatsPage";
 import OnboardingPage from "./pages/onboarding/Onboarding";
+import TrainingsPage from "./pages/student-pages/trainings/TrainingsPage";
 
 function AppRoutes() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function AppRoutes() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/stats" element={<StatsPage />} />
         <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/trainings" element={<TrainingsPage />} />
         <Route path="*" element={<Navigate to="/onboarding" replace />} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />

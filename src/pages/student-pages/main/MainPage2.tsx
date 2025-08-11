@@ -124,13 +124,6 @@ const MainPage2: React.FC = () => {
                   <ChevronRight className="h-5 w-5 text-gray-400 hover:text-gray-600" />
                 </button>
               </div>
-
-              <div className="absolute bottom-0 left-4 right-4 h-1 bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-blue-600"
-                  style={{ width: "100%" }}
-                ></div>
-              </div>
             </div>
           ))}
         </div>

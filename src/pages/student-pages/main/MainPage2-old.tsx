@@ -92,9 +92,9 @@ const MainPage2: React.FC = () => {
               {t.time}
             </span>
             {/* Progress bar (you can wire this up to real data) */}
-            <div className="absolute bottom-0 left-4 right-4 h-1 bg-gray-200 rounded-full overflow-hidden">
+            {/* <div className="absolute bottom-0 left-4 right-4 h-1 bg-gray-200 rounded-full overflow-hidden">
               <div className="h-full bg-blue-600" style={{ width: "100%" }} />
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
