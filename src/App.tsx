@@ -4,7 +4,6 @@ import {
   Routes,
   Route,
   Navigate,
-  useLocation,
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
@@ -15,11 +14,8 @@ import OnboardingPage from "./pages/onboarding/Onboarding";
 import TrainingsPage from "./pages/student-pages/trainings/TrainingsPage";
 
 function AppRoutes() {
-  const location = useLocation();
-  const isOnboarding = location.pathname === "/onboarding";
-
   return (
-    <div className={isOnboarding ? "" : "pt-20"}>
+    <div>
       <Routes>
         <Route path="/main" element={<MainPage2 />} />
         {/* <Route path="/payment" element={<PaymentPage />} /> */}

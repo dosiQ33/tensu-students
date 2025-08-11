@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Droplets, Calendar, Zap } from "lucide-react";
 import { ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { Home, BarChart2, User } from "lucide-react";
+// import { useNavigate } from "react-router-dom";
+import StudentLayout from "@/ui/StudentLayout";
+// removed unused icons after migrating to StudentLayout
 
 const TrainingsPage: React.FC = () => {
   const [animateIn, setAnimateIn] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     setAnimateIn(true);
   }, []);
 
   return (
-    <>
+    <StudentLayout title="Training Options">
       <div
-        className={`px-6 py-8 pb-40 opacity-0 transition-opacity duration-300 ease-in-out ${
+        className={`px-6 py-6 pb-10 opacity-0 transition-opacity duration-300 ease-in-out ${
           animateIn ? "opacity-100" : ""
         }`}
       >
-        <h2 className="text-xl font-semibold text-gray-800 mb-6">
-          Training Options
-        </h2>
 
         {/* Personal Training Block with card hover effects */}
         <div className="mb-6 bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 group">
@@ -186,37 +184,7 @@ const TrainingsPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <nav className="h-20 bg-white shadow-t flex justify-around items-center fixed bottom-0 z-10 w-full">
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/main")}
-        >
-          <Home size={20} />
-          <span className="text-xs">Home</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-blue-600"
-          onClick={() => navigate("/trainings")}
-        >
-          <Calendar size={20} />
-          <span className="text-xs">Trainings</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/stats")}
-        >
-          <BarChart2 size={20} />
-          <span className="text-xs">Stats</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/profile")}
-        >
-          <User size={20} />
-          <span className="text-xs">Profile</span>
-        </button>
-      </nav>
-    </>
+    </StudentLayout>
   );
 };
 

@@ -1,12 +1,11 @@
 import React from "react";
 import { Flame, Award, Droplets } from "lucide-react";
 import LineChart from "./components/LineChart";
-import { Home, User, Calendar, BarChart2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import StudentLayout from "@/ui/StudentLayout";
 
 // Render Stats Screen
 const StatsPage: React.FC = () => {
-  const navigate = useNavigate();
+  
 
   const userData = {
     fullName: "Alex Johnson",
@@ -40,11 +39,8 @@ const StatsPage: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="px-6 py-8 bg-gray-100 pb-[70%]">
-        <h2 className="text-xl font-semibold text-gray-800 mb-6">
-          Your Statistics
-        </h2>
+    <StudentLayout title="Your Statistics">
+      <div className="px-6 py-6">
 
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
@@ -119,37 +115,7 @@ const StatsPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <nav className="h-20 bg-white shadow-t flex justify-around items-center fixed bottom-0 z-10 w-full">
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/main")}
-        >
-          <Home size={20} />
-          <span className="text-xs">Home</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/trainings")}
-        >
-          <Calendar size={20} />
-          <span className="text-xs">Trainings</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-blue-600"
-          onClick={() => navigate("/stats")}
-        >
-          <BarChart2 size={20} />
-          <span className="text-xs">Stats</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/profile")}
-        >
-          <User size={20} />
-          <span className="text-xs">Profile</span>
-        </button>
-      </nav>
-    </>
+    </StudentLayout>
   );
 };
 

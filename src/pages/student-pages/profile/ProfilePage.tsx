@@ -18,15 +18,11 @@ import {
   TrendingUp,
   AlertTriangle,
   Gift,
-  BarChart2,
-  Calendar,
-  Home,
-  User,
   ChevronDown,
   ChevronUp,
   DeleteIcon,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import StudentLayout from "@/ui/StudentLayout";
 
 interface Membership {
   id: string;
@@ -57,7 +53,7 @@ interface AttendanceRecord {
 }
 
 const ProfilePage: React.FC = () => {
-  const navigate = useNavigate();
+  
 
   const [isEditing, setIsEditing] = useState(false);
   const [showFreezeModal, setShowFreezeModal] = useState<string | null>(null);
@@ -287,16 +283,8 @@ const ProfilePage: React.FC = () => {
   const uniqueClubs = [...new Set(payments.map((p) => p.clubName))];
 
   return (
-    <>
-      <div className="min-h-screen bg-gray-100 pb-30">
-        {/* Header */}
-        <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
-          <div className="px-4 py-4">
-            <h1 className="text-xl font-semibold text-gray-900">My profile</h1>
-          </div>
-        </div>
-
-        <div className="px-4 py-4 space-y-6">
+    <StudentLayout title="My profile">
+      <div className="px-4 py-4 space-y-6">
           {/* First Time User Banner */}
           {userData.isFirstTimeUser && (
             <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-4 text-white relative overflow-hidden">
@@ -865,8 +853,6 @@ const ProfilePage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
         {/* Freeze Modal */}
         {showFreezeModal && (
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-end">
@@ -935,37 +921,7 @@ const ProfilePage: React.FC = () => {
           </div>
         )}
       </div>
-      <nav className="h-20 bg-white shadow-t flex justify-around items-center fixed bottom-0 z-10 w-full">
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/main")}
-        >
-          <Home size={20} />
-          <span className="text-xs">Home</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/trainings")}
-        >
-          <Calendar size={20} />
-          <span className="text-xs">Trainings</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/stats")}
-        >
-          <BarChart2 size={20} />
-          <span className="text-xs">Stats</span>
-        </button>
-        <button
-          className="flex flex-col items-center text-blue-600"
-          onClick={() => navigate("/profile")}
-        >
-          <User size={20} />
-          <span className="text-xs">Profile</span>
-        </button>
-      </nav>
-    </>
+    </StudentLayout>
   );
 };
 

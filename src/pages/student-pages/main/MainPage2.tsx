@@ -1,10 +1,10 @@
 // src/components/MainPage2.tsx
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
-import { Home, BarChart2, Calendar, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "@/ui";
 import { CardContent } from "@/ui/card";
+import StudentLayout from "@/ui/StudentLayout";
 
 type Training = {
   icon: string;
@@ -21,7 +21,6 @@ const trainings: Training[] = [
 
 const MainPage2: React.FC = () => {
   const navigate = useNavigate();
-  const notificationCount = 3;
 
   // 1. Состояния для хранения имени и URL аватара
   const [storedName, setStoredName] = useState<string>("Madi"); // дефолт
@@ -70,15 +69,11 @@ const MainPage2: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="max-w-md mx-auto pt-4 pb-30 px-4 bg-gray-100 min-h-screen">
-        {/* Header */}
-        <header className="flex items-center justify-between h-14 mb-6">
-          <h1 className="text-xl font-semibold text-gray-900">
-            Welcome back, {storedName}
-          </h1>
-          {renderAvatar()}
-        </header>
+    <StudentLayout
+      title={`Welcome back, ${storedName}`}
+      rightSlot={renderAvatar()}
+    >
+      <div className="max-w-md mx-auto pt-4 pb-4 px-4">
 
         {/* Today’s Class Card */}
         <div className="flex items-start bg-white border border-gray-200 rounded-lg overflow-hidden mb-8 p-4">
@@ -187,46 +182,7 @@ const MainPage2: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <nav className="h-20 bg-white shadow-t flex justify-around items-center fixed bottom-0 z-10 w-full">
-        <button
-          className="flex flex-col items-center text-blue-600"
-          onClick={() => navigate("/main")}
-        >
-          <Home size={20} />
-          <span className="text-xs">Home</span>
-        </button>
-
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/trainings")}
-        >
-          <Calendar size={20} />
-          <span className="text-xs">Trainings</span>
-        </button>
-
-        <button
-          className="flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/stats")}
-        >
-          <BarChart2 size={20} />
-          <span className="text-xs">Stats</span>
-        </button>
-
-        <button
-          className="relative flex flex-col items-center text-gray-400"
-          onClick={() => navigate("/profile")}
-        >
-          <User size={20} />
-          {notificationCount > 0 && (
-            <span className="absolute -top-1 -right-2 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
-              {notificationCount}
-            </span>
-          )}
-          <span className="text-xs">Profile</span>
-        </button>
-      </nav>
-    </>
+    </StudentLayout>
   );
 };
 
