@@ -20,7 +20,7 @@ export const studentsApi = {
     getList: (token: string) =>
         axiosRequest<GetStudentsListResponse>(ENDPOINTS.STUDENTS.BASE, 'GET', token),
     getMe: (token: string | null) =>
-        axiosRequest<CreateStudentResponse>(ENDPOINTS.STUFF.ME, 'GET', token),
+        axiosRequest<CreateStudentResponse>(ENDPOINTS.STUDENTS.ME, 'GET', token),
 }
 
 export const clubsApi = {

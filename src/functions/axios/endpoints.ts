@@ -24,6 +24,7 @@ export const ENDPOINTS = {
     PREFERENCES: '/students/preferences',
     PREFERENCE: (telegramId: string, key: string) =>
       `/students/${telegramId}/preferences/${key}`,
+    ME: '/students/me',
   },
 
   SECTIONS: {
