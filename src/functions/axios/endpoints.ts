@@ -19,7 +19,6 @@ export const ENDPOINTS = {
 
   STUDENTS: {
     BASE: '/students/',
-    ME: '/students/me',
     BY_ID: (userId: string) => `/students/${userId}`,
     BY_TELEGRAM: (telegramId: string) => `/students/by-telegram-id/${telegramId}`,
     PREFERENCES: '/students/preferences',
@@ -39,6 +38,7 @@ export const ENDPOINTS = {
 
   GROUPS: {
     BASE: '/groups/',
+    MY: '/groups/my',
     BY_SECTION_ID: (sId: number | undefined) => `/groups/section/${sId}`,
     BY_ID: (gId: number | undefined) => `/groups/${gId}`
   },
@@ -57,5 +57,34 @@ export const ENDPOINTS = {
 
   TEAM: {
     BASE: '/team/',
-  }
+  },
+
+  SCHEDULE: {
+    TEMPLATE: {
+      GET: (groupId: string | number) => `/schedule/groups/${groupId}/template`,
+      PUT: (groupId: string | number) => `/schedule/groups/${groupId}/template`,
+      PATCH: (groupId: string | number) => `/schedule/groups/${groupId}/template`,
+    },
+    LESSONS: {
+      GENERATE_FROM_TEMPLATE: (groupId: string | number) => `/schedule/groups/${groupId}/generate-lessons`,
+      REGENERATE_FOR_PERIOD: (groupId: string | number) => `/schedule/groups/${groupId}/regenerate-lessons`,
+      CREATE_MANUAL: '/schedule/lessons',
+      LIST: '/schedule/lessons',
+      GET_BY_ID: (lessonId: string | number) => `/schedule/lessons/${lessonId}`,
+      UPDATE_BY_ID: (lessonId: string | number) => `/schedule/lessons/${lessonId}`,
+      DELETE_BY_ID: (lessonId: string | number) => `/schedule/lessons/${lessonId}`,
+      RESCHEDULE: (lessonId: string | number) => `/schedule/lessons/${lessonId}/reschedule`,
+      CANCEL: (lessonId: string | number) => `/schedule/lessons/${lessonId}/cancel`,
+      COMPLETE: (lessonId: string | number) => `/schedule/lessons/${lessonId}/complete`,
+      BULK_UPDATE: (lessonIds: Array<number>) => `schedule/lessons/bulk-update/?lesson_ids=${lessonIds}`
+    },
+    CALENDAR: {
+      DAY: (targetDate: string) => `/schedule/calendar/day/${targetDate}`,
+      WEEK: (targetDate: string) => `/schedule/calendar/week/${targetDate}`,
+    },
+    STATS: {
+      BY_GROUP: (groupId: string | number) => `/schedule/stats/group/${groupId}`,
+      BY_COACH: (coachId: string | number) => `/schedule/stats/coach/${coachId}`,
+    }
+  }  
 } as const;

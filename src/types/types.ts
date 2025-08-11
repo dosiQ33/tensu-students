@@ -107,6 +107,15 @@ export interface ScheduleEntry {
   valid_until: string;
 }
 
+export interface WeeklyPattern {
+  monday: ScheduleEntry[];
+  tuesday: ScheduleEntry[];
+  wednesday: ScheduleEntry[];
+  thursday: ScheduleEntry[];
+  friday: ScheduleEntry[];
+  saturday: ScheduleEntry[];
+  sunday: ScheduleEntry[];
+}
 
 export type TimeSlot = { time: string; duration: number };
 

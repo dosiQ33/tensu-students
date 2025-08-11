@@ -19,7 +19,6 @@ export default function OnboardingPage() {
   const [showCard, setShowCard] = useState(false);
   const urlParams = new URLSearchParams(window.location.search);
 
-  // флаг, чтобы checkStuffExists вызвался только один раз
   const [hasChecked, setHasChecked] = useState(false);
 
   const [showInvitationAlert, setShowInvitationAlert] = useState(false);
