@@ -208,7 +208,7 @@ export default function OnboardingPage() {
                 </button>
               ) : (
                 <button
-                  onClick={() => navigate("/coach/profile")}
+                  onClick={() => navigate("/profile")}
                   className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-teal-600 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-[40px]"
                 >
                   Продолжить
