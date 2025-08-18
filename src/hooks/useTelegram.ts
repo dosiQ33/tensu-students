@@ -15,13 +15,36 @@ declare global {
   interface Window {
     Telegram?: {
       WebApp: {
-        isVersionAtLeast(arg0: string): unknown;
-        disableVerticalSwipes(): unknown;
-        expand(): unknown;
         initData: string;
         initDataUnsafe: { user: TelegramUser };
+        colorScheme?: 'light' | 'dark';
+        themeParams?: Record<string, string>;
+        isVersionAtLeast: (v: string) => boolean;
         ready: () => void;
+        expand: () => void;
+        disableVerticalSwipes: () => void;
         sendData: (data: string) => void;
+        onEvent?: (event: string, cb: (...args: unknown[]) => void) => void;
+        offEvent?: (event: string, cb: (...args: unknown[]) => void) => void;
+        MainButton?: {
+          setText: (text: string) => void;
+          setParams?: (params: Record<string, unknown>) => void;
+          show: () => void;
+          hide: () => void;
+          onClick: (cb: () => void) => void;
+          offClick?: (cb: () => void) => void;
+        };
+        BackButton?: {
+          show: () => void;
+          hide: () => void;
+          onClick: (cb: () => void) => void;
+          offClick?: (cb: () => void) => void;
+        };
+        HapticFeedback?: {
+          impactOccurred: (style: 'light' | 'medium' | 'heavy') => void;
+          notificationOccurred: (type: 'error' | 'success' | 'warning') => void;
+          selectionChanged: () => void;
+        };
       };
     };
   }

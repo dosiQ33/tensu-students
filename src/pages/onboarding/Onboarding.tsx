@@ -18,10 +18,20 @@ export default function OnboardingPage() {
   const [tg, setTg] = useState<any>(null);
   const [showCard, setShowCard] = useState(false);
   const urlParams = new URLSearchParams(window.location.search);
+  const clubId = urlParams.get("clubId");
 
   const [hasChecked, setHasChecked] = useState(false);
 
   const [showInvitationAlert, setShowInvitationAlert] = useState(false);
+
+  const handleContinue = () => {
+    if (urlParams.get("clubId")) {
+      navigate(`/profile/clubId=${clubId}`)
+    } else {
+      navigate("/profile");
+    }
+
+  };
 
   // плавное появление карточки
   useEffect(() => {
@@ -208,7 +218,7 @@ export default function OnboardingPage() {
                 </button>
               ) : (
                 <button
-                  onClick={() => navigate("/profile")}
+                  onClick={handleContinue}
                   className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-teal-600 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-[40px]"
                 >
                   Продолжить

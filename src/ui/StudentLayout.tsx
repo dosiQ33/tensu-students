@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Home, Calendar, BarChart2, User, ChevronLeft } from "lucide-react";
+import { Home, Calendar, Users, User, ChevronLeft } from "lucide-react";
 
 type StudentLayoutProps = {
   children: React.ReactNode;
@@ -11,9 +11,9 @@ type StudentLayoutProps = {
 };
 
 const TABS = [
-  { label: "Home", path: "/main", Icon: Home },
-  { label: "Trainings", path: "/trainings", Icon: Calendar },
-  { label: "Stats", path: "/stats", Icon: BarChart2 },
+  { label: "Home", path: "/home", Icon: Home },
+  { label: "Schedule", path: "/schedule", Icon: Calendar },
+  { label: "Clubs", path: "/clubs", Icon: Users },
   { label: "Profile", path: "/profile", Icon: User },
 ] as const;
 
@@ -58,7 +58,7 @@ export default function StudentLayout({
         </header>
       )}
 
-      <main className="flex-1 pb-24">{children}</main>
+      <main className="flex-1 pb-28">{children}</main>
 
       <nav className="fixed bottom-0 inset-x-0 z-20 bg-white/95 backdrop-blur border-t border-gray-100">
         <div className="grid grid-cols-4">
